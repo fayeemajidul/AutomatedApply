@@ -1,0 +1,40 @@
+Description:
+--> It's very tedious to apply on (LinkedIn/Dice):
+    --> Automation with both Hybrid Scope can help us accomplish these redundant tasks.
+
+
+Step 1: [Data Driven Architecture] w/ Rest Assured API:
+
+      a. [Excel File] --> Retrieve Data from an Excel File.
+         1) Pro:
+            - Accessible.
+            - Easily editable.
+            - Most convenient.
+         2) Con:
+            - Very time consuming
+            - Most difficult approach.
+
+      b. [SQL querying] -->
+          1) Pro
+            - Remote Database.
+            - Equally as efficient as Excel retrieving.
+            - Others might not know how to use it.
+          2) Con:
+            - Others might not know how to use it.
+            - Server needs to be active.
+
+      c. [JSON file]
+          1) Pro
+            - Easiest method to retrieve data, using Jackson Library.
+            - Almost anyone can use this.
+          2) Con
+            - Static, and needs continuous uploading
+            - Very inefficient and continuous updating.
+
+      Best Method: Excel Data Driven Integration.
+
+     Strategy:
+     ---> Compose Data to Excel Sheet, retrieve Data from Excel Sheet, Parse Data and Post Data to API.
+     ---> RestAssured API: BaseURI: http://216.10.245.166/Library/Addbook.php
+         ---> Pos
+
