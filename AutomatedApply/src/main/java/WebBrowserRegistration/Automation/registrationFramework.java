@@ -4,21 +4,25 @@ import WebBrowserRegistration.GlobalResources.InitDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
 public class registrationFramework implements WebDriver {
     @Test
-    public void RegistrationImplementation() throws InterruptedException, IOException {
+    @Parameters({"firstName"})
+    public void RegistrationImplementation(String firstName) throws InterruptedException, IOException, SQLException {
         InitDriver initDriver = new InitDriver();
         LandingPage landingPage = initDriver.launchPage();
         UserInfo userInfo = landingPage.navigateToUserPage();
-        CaptchaVerification captchaVerification = userInfo.completeUserRegistration();
+        CaptchaVerification captchaVerification = userInfo.completeUserRegistration(firstName);
         captchaVerification.avoidCaptcha();
     }
+
     @Override
     public void get(String url) {
 

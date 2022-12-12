@@ -18,7 +18,7 @@ public class InitDriver {
         public WebDriver InitializeDriver() throws IOException {
             //Global Properties Class: Reading the File.
             Properties property = new Properties();
-            FileInputStream file = new FileInputStream("/Users/fayeemmooktadeer/AutomatedApply/AutomatedApply/src/main/java/Sources/Property.properties");
+            FileInputStream file = new FileInputStream("/Users/fayeemmooktadeer/AutomatedApply/AutomatedApply/src/main/java/WebBrowserRegistration/GlobalResources/Property.properties");
             property.load(file);
             String browserName = property.getProperty("browser"); //Getting the Variable from property class.
 
@@ -37,4 +37,6 @@ public class InitDriver {
             driver = InitializeDriver();
             return new LandingPage(driver);
         }
+
+
 }

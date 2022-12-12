@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="firstName" value="demoPurposes"/>
+<!--Test 1-->
+    <test name="Regression WebBrowser Registration">
+        <packages>
+            <package name="WebBrowserRegistration.Automation"/>
+            <package name="WebBrowserApply"/>
+        </packages>
+    </test>
+
+<!--    <test name="Data Driven Testing">-->
+<!--        <classes>-->
+<!--            <class name="WebBrowserRegistration.Sources.SQLRetrieval">-->
+<!--                <methods>-->
+<!--                    <include name="SQLCredentials"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--&lt;!&ndash;Test 2&ndash;&gt;-->
+<!--    <test name="Running Integration">-->
+<!--        <classes>-->
+<!--            <class name="WebBrowserRegistration.Automation.UserInfo">-->
+<!--                <methods>-->
+<!--                    <include name="PostData"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+
+</suite>

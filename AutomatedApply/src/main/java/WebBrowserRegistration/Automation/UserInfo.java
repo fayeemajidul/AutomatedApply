@@ -1,11 +1,17 @@
 package WebBrowserRegistration.Automation;
 
+import WebBrowserRegistration.Sources.SQLRetrieval;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
-import java.io.IOException;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UserInfo {
     WebDriver driver;
@@ -30,16 +36,36 @@ public class UserInfo {
 
     @FindBy(id = "diceCommunications")
     WebElement radioButton;
+    SQLRetrieval sqlRetrieval = new SQLRetrieval();
+    ArrayList<String> userCredentials;
+
+
+    String firstNameSQL;
+    String lastNameSQL;
+    String emailSQL;
+    String passwordSQL;
+
+    public void postData(String legalFirst) throws SQLException {
+        userCredentials = getData(legalFirst);
+        firstNameSQL = (userCredentials.get(0));
+        lastNameSQL = (userCredentials.get(1));
+        emailSQL = (userCredentials.get(2));
+        passwordSQL = (userCredentials.get(3));
+    }
+    public ArrayList<String> getData(String legalFirst) throws SQLException {
+        userCredentials= sqlRetrieval.SQLCredentials(legalFirst);
+        return userCredentials;
+    }
 
     public void enterUsernameAndPass(){
         //Legal Name
-        userName.sendKeys("GrabData[0]");
-        lastName.sendKeys("GrabData[1]");
+        userName.sendKeys(firstNameSQL);
+        lastName.sendKeys(lastNameSQL);
         //User Email:
-        userEmail.sendKeys("loremimdzkkpxxsum@gmail.com");
+        userEmail.sendKeys(emailSQL);
         //User Password:
-        password.sendKeys("GrabData[3]");
-        passwordConfirmation.sendKeys("GrabData[3]");
+        password.sendKeys(passwordSQL);
+        passwordConfirmation.sendKeys(passwordSQL);
     }
 
     public void radioButtonValidator(){
@@ -49,7 +75,8 @@ public class UserInfo {
             radioButton.click();
         }
     }
-    public CaptchaVerification completeUserRegistration() throws IOException {
+    public CaptchaVerification completeUserRegistration(String firstName) throws SQLException {
+        postData(firstName);
         enterUsernameAndPass();
         radioButtonValidator();
         return new CaptchaVerification(driver);

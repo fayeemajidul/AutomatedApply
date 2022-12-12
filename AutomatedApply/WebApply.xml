@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="firstName" value="demoPurposes"/>
+    <!--Test 1-->
+    <test name="Regression WebBrowser Registration">
+        <packages>
+            <package name="WebBrowserRegistration.Automation"/>
+            <package name="WebBrowserApply"/>
+        </packages>
+    </test>
+
+</suite>
