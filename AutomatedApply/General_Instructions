@@ -1,0 +1,15 @@
+For General Uses:
+
+--> 1) Go to:
+        1) Src Folder --> Main --> Java --> WebBrowser Apply --> Global Resources --> Init_Driver
+        2) In this file:
+                1) Get Path of Properties File Located in Global Resources, input that Path into parameters
+                        a) Double Click on Properties File, and copy absolute Path.
+                        b) in Properties file, change to the browser you are using.
+
+                2) Change the Driver to your desired driver
+                        a) Get the path of your chrome/firefox driver and replace it in the Init_Driver file.
+
+                3) Go to WebApply.XML
+                        a) Enter in your credentials.
+

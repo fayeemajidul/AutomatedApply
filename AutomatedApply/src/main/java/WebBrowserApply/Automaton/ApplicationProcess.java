@@ -42,7 +42,6 @@ public class ApplicationProcess extends AbstractWaits {
     WebElement alreadyAppliedText;
 
     public void verifyEasyApplyLogic(){
-        ifJobAlreadyAppliedTo();
         String splitNum = stepsForJobProcess.getText().split("of ")[1];
         if(Integer.parseInt(splitNum) > 2){
             dropDownToggle.click();
@@ -56,10 +55,6 @@ public class ApplicationProcess extends AbstractWaits {
         Assert.assertEquals(assertIfSubmit.getText(), "Application submitted. We're rooting for you.");
     }
 
-    public void ifJobAlreadyAppliedTo(){
-        String alreadyAppliedToPosition = alreadyAppliedText.getText();
-        System.out.println(alreadyAppliedToPosition);
-    }
 
     public RepeatedApply applicationProcess(){
         verifyEasyApplyLogic();

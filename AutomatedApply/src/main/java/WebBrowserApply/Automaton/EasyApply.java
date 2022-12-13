@@ -40,6 +40,7 @@ public class EasyApply extends AbstractWaits {
         boolean isEasyApplicable = (isEasyApplyPresent.size() > 0);
         if(!isEasyApplicable){
             //Then Go Back To Page, Remove Job and Apply Again. For now just do Skip.
+            System.out.println("Job Is Not Easy Applicable, Remove this Job and Try Again");
             driver.quit();
         }
         shadowEasyApply.click();

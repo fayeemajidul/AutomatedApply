@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="firstName" value="demoPurposes"/>
+    <parameter name="email" value="fafag@gmail.com"/>
+    <parameter name="password" value="King1234!"/>
+
     <!--Test 1-->
     <test name="Regression WebBrowser Registration">
-        <packages>
-            <package name="WebBrowserRegistration.Automation"/>
-            <package name="WebBrowserApply"/>
-        </packages>
+        <classes>
+            <class name="WebBrowserApply.Automaton.ApplyFramework"/>
+        </classes>
     </test>
 
 </suite>

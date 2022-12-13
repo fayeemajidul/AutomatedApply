@@ -2,6 +2,7 @@ package WebBrowserApply.Automaton;
 
 import WebBrowserApply.GlobalResources.InitDriver;
 import org.openqa.selenium.*;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -12,15 +13,16 @@ import java.util.Set;
 
 public class ApplyFramework implements WebDriver {
     @Test
-    public void AutoApply() throws InterruptedException, IOException {
+    @Parameters({"email", "password"})
+    public void AutoApply(String userEmail, String userPassword) throws InterruptedException, IOException {
         InitDriver initDriver = new InitDriver(); // Initialize Global Driver
         SignInDetails signInDetails = initDriver.signIn();
-        FilterJobSelection filterJobSelection = signInDetails.searchJobRole();
+        FilterJobSelection filterJobSelection = signInDetails.searchJobRole(userEmail,userPassword);
         SaveJobs saveJobs = filterJobSelection.queryFilterJobs();
         EasyApply easyApply = saveJobs.navigateToSavedJobs();
         ApplicationProcess applicationProcess = easyApply.easyApplyJobs();
         RepeatedApply repeatedApply = applicationProcess.applicationProcess();
-        repeatedApply.connectSteps();
+//        repeatedApply.connectSteps();
     }
     @Override
     public void get(String url) {

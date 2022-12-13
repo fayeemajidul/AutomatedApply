@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Parameters;
 
 public class SignInDetails extends AbstractWaits {
     WebDriver driver;
@@ -28,16 +29,17 @@ public class SignInDetails extends AbstractWaits {
     WebElement submitBtn;
 
 
-    public void signInDetails(){
+   @Parameters({"email", "password"})
+    public void signInDetails(String userEmail, String userPassword){
         visibilityOf(headerSignIn);
-        email.sendKeys("fayeemtests@gmail.com");
-        password.sendKeys("King1234!");
+        email.sendKeys(userEmail);
+        password.sendKeys(userPassword);
         submitBtn.click();
 
     }
-
-    public FilterJobSelection searchJobRole(){
-        signInDetails();
+    @Parameters({"email", "password"})
+    public FilterJobSelection searchJobRole(String userEmail, String userPassword){
+        signInDetails(userEmail,userPassword);
         return new FilterJobSelection(driver);
     }
 

@@ -18,7 +18,7 @@ public class SaveJobs extends AbstractWaits {
             boolean hasSavedButton = driver.findElements(By.xpath("//dhi-search-card[" + i + "]//div[1]//div[1]//div[1]//div[2]//div[2]//dhi-save-button[1]//div[1]//button[1]")).size() > 0;
             if (hasSavedButton){
                 driver.findElement(By.xpath("//dhi-search-card[" + i + "]//div[1]//div[1]//div[1]//div[2]//div[2]//dhi-save-button[1]//div[1]//button[1]")).click();
-                javaScriptExecutorScrollBy(0,20);
+                javaScriptExecutorScrollBy(0,25);
 
             }else{
                 System.out.println("Job #" + i + " has already been applied to");

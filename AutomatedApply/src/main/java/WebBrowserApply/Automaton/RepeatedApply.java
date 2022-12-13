@@ -23,20 +23,24 @@ public class RepeatedApply extends AbstractWaits {
     @FindBy(xpath = "//a[@class = 'ng-binding']")
     WebElement firstJobToAppearOnPage;
 
-    @FindBy(css = "a[href='/dashboard/jobs']")
-    WebElement unsaveBtn;
+    @FindBy(css = "a[class = '.neutral.sc-dhi-button']")
+    WebElement unsavedBtn;
 
-    public void goBackToSaved(){
+    public void goBackToSaved() throws InterruptedException {
+        Thread.sleep(2000);
         dropDownToggle.click();
+        Thread.sleep(2000);
         goBackToSavedJobs();
     }
-    public void unsaveJob(){
+    public void unsavedJob() throws InterruptedException {
         firstJobToAppearOnPage.click();
-        unsaveBtn.click();
+        Thread.sleep(2000);
+        unsavedBtn.click();
     }
-    public void connectSteps(){
+    public void connectSteps() throws InterruptedException {
         goBackToSaved();
-        unsaveJob();
+        Thread.sleep(2000);
+        unsavedJob();
     }
 
 }
