@@ -38,9 +38,15 @@ public class ApplicationProcess extends AbstractWaits {
     @FindBy(css = "div[class='post-apply-header-text'] h1")
     WebElement assertIfSubmit;
 
+    @FindBy(xpath = "//div[contains(@class,'application-submitted')]//p")
+    WebElement alreadyAppliedText;
+
     public void verifyEasyApplyLogic(){
+        ifJobAlreadyAppliedTo();
         String splitNum = stepsForJobProcess.getText().split("of ")[1];
         if(Integer.parseInt(splitNum) > 2){
+            dropDownToggle.click();
+            dropDownJobSelect.click();
             goBackToSavedJobs();
             visibilityOf(idkWhatThisIS);
             idkWhatElementThisIs.click();
@@ -51,7 +57,8 @@ public class ApplicationProcess extends AbstractWaits {
     }
 
     public void ifJobAlreadyAppliedTo(){
-
+        String alreadyAppliedToPosition = alreadyAppliedText.getText();
+        System.out.println(alreadyAppliedToPosition);
     }
 
     public RepeatedApply applicationProcess(){
