@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="email" value="fafag@gmail.com"/>
-    <parameter name="password" value="King1234!"/>
+    <parameter name="email" value="demoEmail@gmail.com"/>
+    <parameter name="password" value="demoPassword123!"/>
 
     <!--Test 1-->
     <test name="Regression WebBrowser Registration">

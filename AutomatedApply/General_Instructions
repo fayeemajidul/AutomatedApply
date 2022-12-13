@@ -12,4 +12,8 @@ For General Uses:
 
                 3) Go to WebApply.XML
                         a) Enter in your credentials.
+                        b) Run only from WebApply.xml or you will experience errors.
+
+
+                4) LOTS OF FLAKY TESTS, NEED TO PUT MORE LOGIC.
 
